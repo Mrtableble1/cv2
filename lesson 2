@@ -1,0 +1,15 @@
+import cv2
+
+image1 = cv2.imread(r"opencv/cvimage/mars.png",1)
+image2 = cv2.imread(r"opencv/cvimage/space.png",1)
+
+cv2.imshow("mars rocks cool",image1)
+
+cv2.imshow("space photo",image2)
+
+combo = cv2.addWeighted(image1,0.8,image2,0.2,0)
+
+cv2.imshow("combo image",combo)
+
+cv2.waitKey(0)
+
