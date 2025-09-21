@@ -1,15 +1,93 @@
 import cv2
+import numpy as np
+
+#addweight
 
 image1 = cv2.imread(r"opencv/cvimage/mars.png",1)
 image2 = cv2.imread(r"opencv/cvimage/space.png",1)
 
 cv2.imshow("mars rocks cool",image1)
-
 cv2.imshow("space photo",image2)
 
-combo = cv2.addWeighted(image1,0.8,image2,0.2,0)
+combo = cv2.addWeighted(image1,0.9,image2,0.1,0)
 
 cv2.imshow("combo image",combo)
-
 cv2.waitKey(0)
 
+#subtract
+
+image3 = cv2.imread(r"opencv/cvimage/star.jpg",0)
+image4 = cv2.imread(r"opencv/cvimage/dot.jpg",0)
+
+cv2.imshow("star",image3)
+cv2.imshow("dot",image4)
+
+less = cv2.subtract(image3,image4)
+
+cv2.imshow(".*",less)
+cv2.waitKey(0)
+
+cv2.destroyAllWindows()
+
+#resize
+
+image5 = cv2.imread(r"opencv/cvimage/pika.png",0)
+
+cv2.imshow("pika",image5)
+
+image6 = cv2.resize(image5,(400,400))
+
+cv2.imshow("6",image6)
+cv2.waitKey(0)
+
+cv2.destroyAllWindows()
+
+#blurring
+
+image5 = cv2.imread(r"opencv/cvimage/pika.png",0)
+
+cv2.imshow("normal",image5)
+cv2.waitKey()
+
+image7 = cv2.GaussianBlur(image5,(7,7),0)
+
+#GaussianBlur
+
+cv2.imshow("GaussianBlur",image7)
+cv2.waitKey()
+
+image8 = cv2.medianBlur(image5,7)
+
+cv2.destroyAllWindows()
+
+#medianBlur
+
+cv2.imshow("medianBlur",image8)
+cv2.waitKey()
+
+image9 = cv2.bilateralFilter(image5,10,100,100)
+
+cv2.destroyAllWindows()
+
+#bilateralFilter
+
+cv2.imshow("bilateralFilter",image9)
+cv2.waitKey()
+
+cv2.destroyAllWindows()
+
+#erosion
+
+image5 = cv2.imread(r"opencv/cvimage/pika.png",0)
+
+cv2.imshow("normal",image5)
+
+kernel = np.ones((5,5),np.uint8)
+
+image10 = cv2.erode(image5,kernel)
+
+cv2.imshow("erosion",image10)
+cv2.waitKey()
+
+
+cv2.destroyAllWindows()
