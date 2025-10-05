@@ -1,0 +1,53 @@
+import cv2
+
+image1 = cv2.imread(r"opencv/cvimage/pika.png",1)
+
+cv2.imshow("pika pika",image1)
+
+
+#drawing line
+
+startline = (100,400)
+endline = (440,301)
+thinkline = 6
+color = (18,178,93)
+
+image2= cv2.line(image1,startline,endline,color,thinkline)
+
+cv2.imshow("pika pika with a line",image2)
+
+
+#drawing a rect
+
+startpoint = (200,400)
+endpoint = (440,301)
+thinkrect = -1
+color = (48,118,73)
+
+image3= cv2.rectangle(image1,startpoint,endpoint,color,thinkrect)
+
+cv2.imshow("pika pika with a rectangle and a line",image3)
+
+
+center = (267,101)
+color = (212,28,183)
+radius = 50
+color = (212,28,183)
+
+image4= cv2.circle(image1,center,radius,color,thinkrect)
+
+cv2.imshow("pika pika with a rectangle and a line and a circle",image4)
+
+
+#writing
+
+font = cv2.FONT_HERSHEY_SCRIPT_COMPLEX
+point = (200,400)
+thinkwrite = 2
+color = (212,28,183)
+scale= 1
+
+image5= cv2.putText(image1,"hello I am pika pika",point,font,scale,color,thinkwrite,cv2.LINE_AA)
+cv2.imshow("pika pika with a rectangle and a line and a circle and a text",image5)
+cv2.waitKey()
+
