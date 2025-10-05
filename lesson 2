@@ -5,6 +5,8 @@ import numpy as np
 
 image1 = cv2.imread(r"opencv/cvimage/mars.png",1)
 image2 = cv2.imread(r"opencv/cvimage/space.png",1)
+image13 = cv2.imread(r"opencv/cvimage/monkey.png",1)
+
 
 cv2.imshow("mars rocks cool",image1)
 cv2.imshow("space photo",image2)
@@ -44,7 +46,7 @@ cv2.destroyAllWindows()
 
 #blurring
 
-image5 = cv2.imread(r"opencv/cvimage/pika.png",0)
+image5 = cv2.imread(r"opencv/cvimage/pika.png",1)
 
 cv2.imshow("normal",image5)
 cv2.waitKey()
@@ -91,3 +93,30 @@ cv2.waitKey()
 
 
 cv2.destroyAllWindows()
+
+#bordering
+
+image5 = cv2.imread(r"opencv/cvimage/pika.png",1)
+
+cv2.imshow("normal",image5)
+
+image11 = cv2.copyMakeBorder(image5,50,50,50,50,cv2.BORDER_CONSTANT,value = (100,100,100))
+
+cv2.imshow("border_constant",image11)
+cv2.waitKey()
+
+cv2.imshow("border_constant",image13)
+
+image12 = cv2.copyMakeBorder(image13,20,20,20,20,cv2.BORDER_REFLECT,value = (100,100,100))
+
+
+cv2.imshow("border_reflect",image12)
+cv2.waitKey()
+
+cv2.destroyAllWindows()
+
+image14 = cv2.copyMakeBorder(image5,20,20,20,20,cv2.BORDER_REFLECT_101,value = (100,100,100))
+
+
+cv2.imshow("border_reflect101",image14)
+cv2.waitKey()
