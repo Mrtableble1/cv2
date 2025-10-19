@@ -1,0 +1,33 @@
+import cv2
+import os
+from PIL import Image
+
+path = "cvimage"
+
+os.chdir(path)
+
+nummberimages = len(os.listdir("."))
+
+meanwidth = 0
+meanheight = 0
+
+for file in os.listdir("."):
+    img = Image.open(file)
+    width,height = img.size
+    meanwidth = meanwidth+width
+    meanheight = meanheight+height
+
+meanwidth = meanwidth//nummberimages
+meanheight = meanheight//nummberimages
+
+print(meanheight)
+print(meanwidth)
+
+for file in os.listdir("."):
+    if file.endswith(".jpg") or file.endswith(".png"):
+        img = Image.open(file)
+        resized = img.resize((meanwidth,meanheight),Image.Resampling.LANCZOS)
+        resized.save(file,"JPEG,quality = 95")
+
+
+cv2.waitKey()
